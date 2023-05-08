@@ -1,7 +1,7 @@
 {
   "extends": ["@react-bootstrap", "4catalyzer-typescript", "prettier"],
   "plugins": ["prettier"],
-  "ignorePatterns": ["tools/**/*"],
+  "ignorePatterns": ["tools/**/*", "build/**/*"],
   "rules": {
     "import/extensions": "off",
     "prettier/prettier": "warn",

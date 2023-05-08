@@ -1,0 +1,89 @@
+{
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
+  },
+  "stories": {
+    "button--primary-button": {
+      "name": "Primary button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 16,
+      "locEnd": 18,
+      "filePath": "src/ui/Button/Button.stories.tsx",
+      "meta": {}
+    },
+    "button--quaternary-button": {
+      "name": "Quaternary button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 25,
+      "locEnd": 27,
+      "filePath": "src/ui/Button/Button.stories.tsx",
+      "meta": {}
+    },
+    "button--secondary-button": {
+      "name": "Secondary button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 19,
+      "locEnd": 21,
+      "filePath": "src/ui/Button/Button.stories.tsx",
+      "meta": {}
+    },
+    "button--tertiary-button": {
+      "name": "Tertiary button",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 22,
+      "locEnd": 24,
+      "filePath": "src/ui/Button/Button.stories.tsx",
+      "meta": {}
+    },
+    "button--with-overrides": {
+      "name": "With overrides",
+      "levels": [
+        "Button"
+      ],
+      "locStart": 28,
+      "locEnd": 35,
+      "filePath": "src/ui/Button/Button.stories.tsx",
+      "meta": {}
+    },
+    "modal--minimal-modal": {
+      "name": "Minimal modal",
+      "levels": [
+        "Modal"
+      ],
+      "locStart": 19,
+      "locEnd": 44,
+      "filePath": "src/ui/Modal/Modal.stories.tsx",
+      "meta": {}
+    },
+    "modal--modal-stack": {
+      "name": "Modal stack",
+      "levels": [
+        "Modal"
+      ],
+      "locStart": 109,
+      "locEnd": 168,
+      "filePath": "src/ui/Modal/Modal.stories.tsx",
+      "meta": {}
+    },
+    "modal--resizable-modal": {
+      "name": "Resizable modal",
+      "levels": [
+        "Modal"
+      ],
+      "locStart": 67,
+      "locEnd": 107,
+      "filePath": "src/ui/Modal/Modal.stories.tsx",
+      "meta": {}
+    }
+  }
+}
