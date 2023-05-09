@@ -70,8 +70,8 @@
       "levels": [
         "Modal"
       ],
-      "locStart": 109,
-      "locEnd": 168,
+      "locStart": 107,
+      "locEnd": 166,
       "filePath": "src/ui/Modal/Modal.stories.tsx",
       "meta": {}
     },
@@ -80,8 +80,8 @@
       "levels": [
         "Modal"
       ],
-      "locStart": 67,
-      "locEnd": 107,
+      "locStart": 65,
+      "locEnd": 105,
       "filePath": "src/ui/Modal/Modal.stories.tsx",
       "meta": {}
     }
