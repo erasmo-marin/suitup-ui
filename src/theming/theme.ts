@@ -3,6 +3,10 @@ import { colors, type ThemeColorsType } from './colors';
 import { ButtonTheme, type ButtonThemeType } from '../ui/Button/theme';
 import { ModalTheme, type ModalThemeType } from '../ui/Modal/theme';
 import {
+  ModalHeaderTheme,
+  type ModalHeaderThemeType,
+} from '../ui/Modal/Header/theme';
+import {
   ContainerTheme,
   type ContainerThemeType,
 } from '../layout/Container/theme';
@@ -13,6 +17,7 @@ export type ThemeType = {
   breakpoints: ThemeBreakpointsType;
   Button: ButtonThemeType;
   Modal: ModalThemeType;
+  ModalHeader: ModalHeaderThemeType;
   Container: ContainerThemeType;
 };
 
@@ -21,6 +26,7 @@ export const defaultTheme: ThemeType = {
   breakpoints,
   Button: ButtonTheme,
   Modal: ModalTheme,
+  ModalHeader: ModalHeaderTheme,
   Container: ContainerTheme,
 };
 

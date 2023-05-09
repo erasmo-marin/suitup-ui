@@ -7,9 +7,17 @@ export type ThemeBreakpointsType = {
   fullhd: CSS.Property.Width;
 };
 
+export const breakpointsValues = {
+  mobile: 0,
+  tablet: 769,
+  desktop: 1024,
+  widescreen: 1216,
+  fullhd: 1408,
+};
+
 export const breakpoints: ThemeBreakpointsType = {
-  tablet: '769px',
-  desktop: '1024px',
-  widescreen: '1216px',
-  fullhd: '1408px',
+  tablet: `${breakpointsValues.tablet}px`,
+  desktop: `${breakpointsValues.desktop}px`,
+  widescreen: `${breakpointsValues.widescreen}px`,
+  fullhd: `${breakpointsValues.fullhd}px`,
 };

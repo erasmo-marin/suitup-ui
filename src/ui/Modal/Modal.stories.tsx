@@ -53,14 +53,12 @@ const sizes = {
 
 const ChildModal = ({ open, onClose, uniqId, overrides, children }) => (
   <Modal uniqId={uniqId} open={open} overrides={overrides}>
-    <Modal.Content>
-      <Modal.Header
-        title="Child Modal"
-        leftButton="back"
-        onLeftButtonClick={onClose}
-      />
-      {children}
-    </Modal.Content>
+    <Modal.Header
+      title="Child Modal"
+      leftButton="back"
+      onLeftButtonClick={onClose}
+    />
+    <Modal.Content>{children}</Modal.Content>
   </Modal>
 );
 
@@ -88,12 +86,12 @@ export const ResizableModal: Story = () => {
         onClose={closeModal}
         animate={{ width: sizes[size].width, height: sizes[size].height }}
       >
+        <Modal.Header
+          title="Modal title"
+          leftButton="close"
+          onLeftButtonClick={closeModal}
+        />
         <Modal.Content>
-          <Modal.Header
-            title="Modal title"
-            leftButton="close"
-            onLeftButtonClick={closeModal}
-          />
           <Container>
             <Button variant="primary" onClick={toggleSize}>
               Resize me
@@ -125,12 +123,12 @@ export const ModalStack: Story = () => {
         onClose={closeModal}
         uniqId="parent"
       >
+        <Modal.Header
+          title="Modal title"
+          leftButton="close"
+          onLeftButtonClick={closeModal}
+        />
         <Modal.Content>
-          <Modal.Header
-            title="Modal title"
-            leftButton="close"
-            onLeftButtonClick={closeModal}
-          />
           <Container>
             <Button variant="primary" onClick={() => setChildOpen(true)}>
               Open child modal

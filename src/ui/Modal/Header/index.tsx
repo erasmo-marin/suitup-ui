@@ -1,35 +1,38 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Cross1Icon, ChevronLeftIcon } from '@radix-ui/react-icons';
+import useOverrides from '../../../theming/useOverrides';
+import { ModalHeaderThemeType } from './theme';
 
 const HeaderContainer = styled.div`
-  height: 56px;
-  min-height: 56px;
+  height: ${({ styles }) => styles?.height};
+  background: ${({ styles }) => styles?.background};
+  min-height: ${({ styles }) => styles?.height};
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #dedede;
+  border-bottom: ${({ styles }) => styles?.borderBottom};
 `;
 
 const ActionButton = styled.button`
-  background: transparent;
-  border: none;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 50%;
+  background: ${({ styles }) => styles?.background};
+  border: ${({ styles }) => styles?.border};
+  width: ${({ styles }) => styles?.width};
+  height: ${({ styles }) => styles?.height};
+  display: ${({ styles }) => styles?.display};
+  justify-content: ${({ styles }) => styles?.justifyContent};
+  align-items: ${({ styles }) => styles?.alignItems};
+  cursor: ${({ styles }) => styles?.cursor};
+  border-radius: ${({ styles }) => styles?.borderRadius};
   &:hover {
-    background: #dedede;
+    background: ${({ styles }) => styles?.hover.background};
   }
 `;
 
 const TitleCol = styled.div`
-  align-text: center;
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
+  text-align: ${({ styles }) => styles?.textAlign};
+  display: ${({ styles }) => styles?.display};
+  justify-content: ${({ styles }) => styles?.justifyContent};
+  flex-grow: ${({ styles }) => styles?.flexGrow};
 `;
 
 const ActionCol = styled.div`
@@ -58,6 +61,7 @@ export type ModalHeaderProps = {
   onLeftButtonClick?: () => void;
   rightButton?: ModalHeaderActionButtonType;
   onRightButtonClick?: () => void;
+  overrides?: ModalHeaderThemeType;
 };
 
 const ModalHeader = ({
@@ -66,24 +70,35 @@ const ModalHeader = ({
   onLeftButtonClick,
   rightButton,
   onRightButtonClick,
-}: ModalHeaderProps) => (
-  <HeaderContainer>
-    <ActionCol>
-      {leftButton ? (
-        <ActionButton onClick={onLeftButtonClick}>
-          {getActionButton(leftButton)}
-        </ActionButton>
-      ) : null}
-    </ActionCol>
-    <TitleCol>{title}</TitleCol>
-    <ActionCol>
-      {rightButton ? (
-        <ActionButton onClick={onRightButtonClick}>
-          {getActionButton(rightButton)}
-        </ActionButton>
-      ) : null}
-    </ActionCol>
-  </HeaderContainer>
-);
+  overrides,
+}: ModalHeaderProps) => {
+  const styles = useOverrides<ModalHeaderThemeType>('ModalHeader', overrides);
+
+  return (
+    <HeaderContainer styles={styles}>
+      <ActionCol>
+        {leftButton ? (
+          <ActionButton
+            onClick={onLeftButtonClick}
+            styles={styles?.ActionButton}
+          >
+            {getActionButton(leftButton)}
+          </ActionButton>
+        ) : null}
+      </ActionCol>
+      <TitleCol styles={styles?.Title}>{title}</TitleCol>
+      <ActionCol>
+        {rightButton ? (
+          <ActionButton
+            onClick={onRightButtonClick}
+            styles={styles?.ActionButton}
+          >
+            {getActionButton(rightButton)}
+          </ActionButton>
+        ) : null}
+      </ActionCol>
+    </HeaderContainer>
+  );
+};
 
 export default ModalHeader;

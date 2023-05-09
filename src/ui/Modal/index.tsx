@@ -6,6 +6,7 @@ import useOverrides from '../../theming/useOverrides';
 import { ModalThemeType } from './theme';
 import ModalHeader from './Header';
 import { useModalContext } from './context';
+import useIsMobile from '../../hooks/useIsMobile';
 
 const MODAL_BASE_Z_INDEX = 1000;
 
@@ -33,7 +34,7 @@ const ModalBox = styled(Overlay.Child)`
   overflow: hidden;
   z-index: ${(props) => props.zIndex};
 
-  @media (min-width: 1024px) {
+  @media (min-width: 769px) {
     background-color: ${({ styles }) => styles.desktop.backgroundColor};
     border-radius: ${({ styles }) => styles.desktop.borderRadius};
     width: ${({ styles }) => styles.desktop.width};
@@ -53,10 +54,22 @@ const ModalContent = styled.div`
   -webkit-overflow-scrolling: touch;
 `;
 
-const defaultVariants = {
-  initial: { y: '100vh', scale: 0.8 },
-  appear: { y: 0, scale: 1 },
-  disappear: { y: '100vh', scale: 0.8 },
+type ResponsiveVariantsType = {
+  desktop: Variants;
+  mobile: Variants;
+};
+
+const defaultVariants: ResponsiveVariantsType = {
+  desktop: {
+    initial: { y: '100vh', scale: 0.8 },
+    appear: { y: 0, scale: 1 },
+    disappear: { y: '100vh', scale: 0.8 },
+  },
+  mobile: {
+    initial: { y: '100vh', scale: 0.8 },
+    appear: { y: 0, scale: 1 },
+    disappear: { y: '100vh', scale: 0.8 },
+  },
 };
 
 const defaultTransition = {
@@ -67,10 +80,19 @@ const defaultTransition = {
 
 export type ModalProps = OverlayProps & {
   uniqId: string;
+  animationVariants?: ResponsiveVariantsType;
   vailAnimationVariants?: Variants;
   vailTransition?: Transition;
   overrides?: ModalThemeType;
   animate?: TargetAndTransition;
+};
+
+const computeMobileMarginTop = (modalPosition: number, openModals: number) => {
+  if (modalPosition === -1) return 0;
+
+  if (modalPosition + 1 === openModals) return 16;
+
+  return -8;
 };
 
 const Modal = ({
@@ -92,6 +114,7 @@ const Modal = ({
   const styles = useOverrides<ModalThemeType>('Modal', overrides);
   const { onModalOpen, onModalClose, modalPosition, openModals } =
     useModalContext(uniqId);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (open) {
@@ -104,7 +127,14 @@ const Modal = ({
   }, [open, onModalOpen, onModalClose, modalPosition]);
 
   const scale =
-    modalPosition === -1 ? 1 : 1 - (openModals - modalPosition - 1) * 0.05;
+    modalPosition === -1 ? 1 : 1 - (openModals - modalPosition - 1) * 0.03;
+  const marginTop = isMobile
+    ? computeMobileMarginTop(modalPosition, openModals)
+    : 'auto';
+
+  const modalVariants = isMobile
+    ? animationVariants.mobile
+    : animationVariants.desktop;
 
   return (
     <ModalOverlay
@@ -118,12 +148,13 @@ const Modal = ({
       zIndex={overlayZIndex}
     >
       <ModalBox
-        animationVariants={animationVariants}
+        animationVariants={modalVariants}
         open={open}
         transition={transition}
         animate={{
-          ...animate,
           scale,
+          marginTop,
+          ...animate,
         }}
         styles={styles}
         zIndex={overlayZIndex + 1}
