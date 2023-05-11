@@ -15,6 +15,7 @@ const HeaderContainer = styled.div`
 
 const ActionButton = styled.button`
   background: ${({ styles }) => styles?.background};
+  color: ${({ styles }) => styles?.color};
   border: ${({ styles }) => styles?.border};
   width: ${({ styles }) => styles?.width};
   height: ${({ styles }) => styles?.height};

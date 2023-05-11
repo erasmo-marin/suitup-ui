@@ -29,7 +29,7 @@ const useModalStack = () => {
   };
 };
 
-const ModalContext = createContext({
+export const ModalContext = createContext({
   onOpen: noop,
   onClose: noop,
   openModals: 0,
@@ -61,11 +61,17 @@ export const useModalContext = (uniqId: string) => {
     onClose(uniqId);
   }, [uniqId, onClose]);
 
+  // The position of the modal in the stack
+  const modalPosition = getModalStackPosition(uniqId);
+  // Is the top level modal in the stack
+  const modalIsActive = openModals - 1 === modalPosition;
+
   return {
     onModalOpen,
     onModalClose,
     openModals,
-    modalPosition: getModalStackPosition(uniqId),
+    modalPosition,
+    modalIsActive,
   };
 };
 export default ModalProvider;

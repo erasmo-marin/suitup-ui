@@ -3,6 +3,7 @@ import type { Story, StoryDefault } from '@ladle/react';
 import StoriesWrapper from '../../utils/StoriesWrapper';
 import LoremIpsum from '../../utils/LoremIpsum';
 import Button from '../Button';
+import Input from '../Input';
 import Container from '../../layout/Container';
 import Modal from './index';
 
@@ -25,7 +26,7 @@ export const MinimalModal: Story = () => {
   return (
     <>
       <Button variant="primary" onClick={openModal}>
-        Hello!
+        Open Modal
       </Button>
       <Modal
         uniqId="minimal-modal"
@@ -77,7 +78,7 @@ export const ResizableModal: Story = () => {
   return (
     <>
       <Button variant="primary" onClick={openModal}>
-        Hello!
+        Open Modal
       </Button>
       <Modal
         uniqId="resizable-modal"
@@ -115,7 +116,7 @@ export const ModalStack: Story = () => {
   return (
     <>
       <Button variant="primary" onClick={openModal}>
-        Hello!
+        Open Modal
       </Button>
       <Modal
         open={open}
@@ -160,6 +161,118 @@ export const ModalStack: Story = () => {
             <p>This is a sub child modal</p>
           </Container>
         </ChildModal>
+      </ChildModal>
+    </>
+  );
+};
+
+export const ModalFocusLock: Story = () => {
+  const [open, setOpen] = useState(false);
+  const [childOpen, setChildOpen] = useState(false);
+
+  const closeModal = () => setOpen(false);
+  const openModal = () => setOpen(true);
+
+  const form = (
+    <form>
+      <p>Navigate using Tab</p>
+      <Input
+        type="text"
+        placeholder="Username"
+        overrides={{ margin: '12px 0' }}
+      />
+      <Input
+        type="password"
+        placeholder="Password"
+        overrides={{ margin: '12px 0' }}
+      />
+    </form>
+  );
+
+  return (
+    <>
+      {form}
+      <Button variant="primary" onClick={openModal}>
+        Open modal
+      </Button>
+      <Modal
+        open={open}
+        onBlur={closeModal}
+        onClose={closeModal}
+        uniqId="parent"
+      >
+        <Modal.Header
+          title="Modal title"
+          leftButton="close"
+          onLeftButtonClick={closeModal}
+        />
+        <Modal.Content>
+          <Container>
+            {form}
+            <Button variant="primary" onClick={() => setChildOpen(true)}>
+              Open child modal
+            </Button>
+          </Container>
+        </Modal.Content>
+      </Modal>
+      <ChildModal
+        open={childOpen}
+        onClose={() => setChildOpen(false)}
+        uniqId="child-modal"
+        overrides={{ desktop: { width: '500px', height: '300px' } }}
+      >
+        <Container>{form}</Container>
+      </ChildModal>
+    </>
+  );
+};
+
+export const ModalScroll: Story = () => {
+  const [open, setOpen] = useState(false);
+  const [childOpen, setChildOpen] = useState(false);
+
+  const closeModal = () => setOpen(false);
+  const openModal = () => setOpen(true);
+
+  return (
+    <>
+      <Button variant="primary" onClick={openModal}>
+        Open Modal
+      </Button>
+      <LoremIpsum paragraphs={10} />
+      <Button variant="primary" onClick={openModal}>
+        Open Modal
+      </Button>
+      <LoremIpsum paragraphs={10} />
+      <Modal
+        open={open}
+        onBlur={closeModal}
+        onClose={closeModal}
+        uniqId="parent"
+      >
+        <Modal.Header
+          title="Modal title"
+          leftButton="close"
+          onLeftButtonClick={closeModal}
+        />
+        <Modal.Content>
+          <Container>
+            <Button variant="primary" onClick={() => setChildOpen(true)}>
+              Open child modal
+            </Button>
+            <LoremIpsum paragraphs={20} />
+          </Container>
+        </Modal.Content>
+      </Modal>
+      <ChildModal
+        open={childOpen}
+        onClose={() => setChildOpen(false)}
+        uniqId="child-modal"
+        overrides={{ desktop: { width: '500px', height: '300px' } }}
+      >
+        <Container>
+          <LoremIpsum paragraphs={20} />
+        </Container>
       </ChildModal>
     </>
   );

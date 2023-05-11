@@ -22,12 +22,20 @@ export type ThemeColorsType = {
     secondary: CSS.Property.Color;
     tertiary: CSS.Property.Color;
     quaternary: CSS.Property.Color;
+    primaryRgb: CSS.Property.Color;
+    secondaryRgb: CSS.Property.Color;
+    tertiaryRgb: CSS.Property.Color;
+    quaternaryRgb: CSS.Property.Color;
   };
   label: {
     primary: CSS.Property.Color;
     secondary: CSS.Property.Color;
     tertiary: CSS.Property.Color;
     quaternary: CSS.Property.Color;
+    primaryRgb: CSS.Property.Color;
+    secondaryRgb: CSS.Property.Color;
+    tertiaryRgb: CSS.Property.Color;
+    quaternaryRgb: CSS.Property.Color;
   };
 };
 
@@ -49,15 +57,23 @@ export const colors: ThemeColorsType = {
     quaternary: 'rgb(255, 255, 255)',
   },
   fill: {
-    primary: 'rgba(120, 120, 128)',
-    secondary: 'rgba(120, 120, 128)',
-    tertiary: 'rgba(118, 118, 128)',
-    quaternary: 'rgba(116, 116, 128)',
+    primary: '120, 120, 128',
+    secondary: '120, 120, 128',
+    tertiary: '118, 118, 128',
+    quaternary: '116, 116, 128',
+    primaryRgb: 'rgb(120, 120, 128)',
+    secondaryRgb: 'rgb(120, 120, 128)',
+    tertiaryRgb: 'rgb(118, 118, 128)',
+    quaternaryRgb: 'rgb(116, 116, 128)',
   },
   label: {
-    primary: 'rgba(43, 43, 43)',
-    secondary: 'rgba(60, 60, 67)',
-    tertiary: 'rgba(60, 60, 67)',
-    quaternary: 'rgba(60, 60, 67)',
+    primary: '43, 43, 43',
+    secondary: '60, 60, 67',
+    tertiary: '60, 60, 67',
+    quaternary: '60, 60, 67',
+    primaryRgb: 'rgba(43, 43, 43)',
+    secondaryRgb: 'rgba(60, 60, 67)',
+    tertiaryRgb: 'rgba(60, 60, 67)',
+    quaternaryRgb: 'rgba(60, 60, 67)',
   },
 };

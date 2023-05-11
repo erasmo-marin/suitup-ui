@@ -55,13 +55,53 @@
       "filePath": "src/ui/Button/Button.stories.tsx",
       "meta": {}
     },
+    "input--default": {
+      "name": "Default",
+      "levels": [
+        "Input"
+      ],
+      "locStart": 16,
+      "locEnd": 16,
+      "filePath": "src/ui/Input/Input.stories.tsx",
+      "meta": {}
+    },
+    "input--with-overrides": {
+      "name": "With overrides",
+      "levels": [
+        "Input"
+      ],
+      "locStart": 18,
+      "locEnd": 27,
+      "filePath": "src/ui/Input/Input.stories.tsx",
+      "meta": {}
+    },
     "modal--minimal-modal": {
       "name": "Minimal modal",
       "levels": [
         "Modal"
       ],
-      "locStart": 19,
-      "locEnd": 44,
+      "locStart": 20,
+      "locEnd": 45,
+      "filePath": "src/ui/Modal/Modal.stories.tsx",
+      "meta": {}
+    },
+    "modal--modal-focus-lock": {
+      "name": "Modal focus lock",
+      "levels": [
+        "Modal"
+      ],
+      "locStart": 169,
+      "locEnd": 228,
+      "filePath": "src/ui/Modal/Modal.stories.tsx",
+      "meta": {}
+    },
+    "modal--modal-scroll": {
+      "name": "Modal scroll",
+      "levels": [
+        "Modal"
+      ],
+      "locStart": 230,
+      "locEnd": 279,
       "filePath": "src/ui/Modal/Modal.stories.tsx",
       "meta": {}
     },
@@ -70,8 +110,8 @@
       "levels": [
         "Modal"
       ],
-      "locStart": 107,
-      "locEnd": 166,
+      "locStart": 108,
+      "locEnd": 167,
       "filePath": "src/ui/Modal/Modal.stories.tsx",
       "meta": {}
     },
@@ -80,8 +120,8 @@
       "levels": [
         "Modal"
       ],
-      "locStart": 65,
-      "locEnd": 105,
+      "locStart": 66,
+      "locEnd": 106,
       "filePath": "src/ui/Modal/Modal.stories.tsx",
       "meta": {}
     }

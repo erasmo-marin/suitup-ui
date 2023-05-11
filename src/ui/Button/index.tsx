@@ -13,7 +13,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const ButtonContainer = styled.button`
   display: flex;
-  background-color: ${({ styles, variant }) =>
+  background-color: ${({ styles, variant = 'primary' }) =>
     styles[variant]?.backgroundColor};
   color: ${({ styles, variant }) => styles[variant]?.color};
   border: ${({ styles, variant }) => styles[variant]?.border};

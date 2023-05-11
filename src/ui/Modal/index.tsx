@@ -7,8 +7,9 @@ import { ModalThemeType } from './theme';
 import ModalHeader from './Header';
 import { useModalContext } from './context';
 import useIsMobile from '../../hooks/useIsMobile';
+import { LayerLevels } from '../../theming/layers';
 
-const MODAL_BASE_Z_INDEX = 1000;
+const MODAL_BASE_Z_INDEX = LayerLevels.MODAL;
 
 const ModalOverlay = styled(Overlay)`
   z-index: ${(props) => props.zIndex};
@@ -50,8 +51,13 @@ const ModalContent = styled.div`
   display: flex;
   flex-flow: column;
   flex-grow: 1;
-  overflow: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  overflow: auto;
+  padding-bottom: 16px; /*Needed to compensate top margin on mobile*/
+  @media (min-width: 769px) {
+    padding-bottom: 0px;
+  }
 `;
 
 type ResponsiveVariantsType = {
@@ -80,6 +86,8 @@ const defaultTransition = {
 
 export type ModalProps = OverlayProps & {
   uniqId: string;
+  label?: string;
+  role?: string;
   animationVariants?: ResponsiveVariantsType;
   vailAnimationVariants?: Variants;
   vailTransition?: Transition;
@@ -97,11 +105,13 @@ const computeMobileMarginTop = (modalPosition: number, openModals: number) => {
 
 const Modal = ({
   uniqId,
+  label = 'modal',
+  role = 'dialog',
   open,
   onClose,
   onBlur,
-  closeOnBlur,
-  closeOnEsc,
+  closeOnBlur = true,
+  closeOnEsc = true,
   animationVariants = defaultVariants,
   vailAnimationVariants,
   transition = defaultTransition,
@@ -112,8 +122,13 @@ const Modal = ({
 }: ModalProps) => {
   const [overlayZIndex, setOverlayZIndex] = useState(0);
   const styles = useOverrides<ModalThemeType>('Modal', overrides);
-  const { onModalOpen, onModalClose, modalPosition, openModals } =
-    useModalContext(uniqId);
+  const {
+    onModalOpen,
+    onModalClose,
+    modalPosition,
+    openModals,
+    modalIsActive,
+  } = useModalContext(uniqId);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -139,8 +154,9 @@ const Modal = ({
   return (
     <ModalOverlay
       open={open}
+      hasFocusTrap={modalIsActive && open}
       closeOnBlur={closeOnBlur}
-      closeOnEsc={closeOnEsc}
+      closeOnEsc={modalIsActive && closeOnEsc}
       onClose={onClose}
       onBlur={onBlur}
       transition={vailTransition}
@@ -151,6 +167,8 @@ const Modal = ({
         animationVariants={modalVariants}
         open={open}
         transition={transition}
+        label={label}
+        role={role}
         animate={{
           scale,
           marginTop,

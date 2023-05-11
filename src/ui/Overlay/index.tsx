@@ -10,10 +10,12 @@ import classnames from 'classnames';
 import noop from 'lodash/noop';
 import styled from 'styled-components';
 import Portal from '../Portal';
+import { AccessibilityFocusTrap } from '../Accessibility';
 
 export type OverlayProps = {
   children?: React.ReactNode;
   open?: boolean;
+  hasFocusTrap?: boolean;
   className?: string;
   closeOnBlur?: boolean;
   closeOnEsc?: boolean;
@@ -67,6 +69,7 @@ const Overlay = ({
   children,
   className,
   open = true,
+  hasFocusTrap = open,
   animationVariants = variants,
   transition,
   closeOnBlur = false,
@@ -107,22 +110,24 @@ const Overlay = ({
 
   return (
     <Portal>
-      <AnimatePresence key="overlay">
-        {open && (
-          <StyledOverlay
-            key="overlay-motion"
-            className={classes}
-            variants={animationVariants}
-            transition={transition}
-            initial="initial"
-            animate="appear"
-            exit="disappear"
-            onClick={handleClick}
-            onAnimationStart={onOpen}
-          />
-        )}
-      </AnimatePresence>
-      {children}
+      <AccessibilityFocusTrap readyToFocus={hasFocusTrap}>
+        <AnimatePresence key="overlay">
+          {open && (
+            <StyledOverlay
+              key="overlay-motion"
+              className={classes}
+              variants={animationVariants}
+              transition={transition}
+              initial="initial"
+              animate="appear"
+              exit="disappear"
+              onClick={handleClick}
+              onAnimationStart={onOpen}
+            />
+          )}
+        </AnimatePresence>
+        {children}
+      </AccessibilityFocusTrap>
     </Portal>
   );
 };
