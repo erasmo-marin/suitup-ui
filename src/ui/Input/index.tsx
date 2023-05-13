@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import useOverrides from '../../theming/useOverrides';
 import { InputThemeType } from './theme';
 
-type InputPropsType = React.InputHTMLAttributes<HTMLInputElement> & {
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   overrides?: InputThemeType;
 };
 
@@ -50,8 +50,8 @@ const InputWrapper = styled.input`
   }
 `;
 
-const Input = ({ overrides, ...rest }: InputPropsType) => {
-  const styles = useOverrides('Input', overrides);
+const Input = ({ overrides, ...rest }: InputProps) => {
+  const styles = useOverrides({ key: 'Input', overrides });
   return <InputWrapper styles={styles} {...rest} />;
 };
 

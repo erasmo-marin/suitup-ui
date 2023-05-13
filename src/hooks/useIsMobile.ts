@@ -1,4 +1,4 @@
-import useViewportSize from './useViewpoerSize';
+import useViewportSize from './useViewportSize';
 import { breakpointsValues } from '../theming/breakpoints';
 
 const useIsMobile = () => {

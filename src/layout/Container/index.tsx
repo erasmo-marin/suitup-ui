@@ -26,7 +26,10 @@ const Container = ({
   overrides,
   ...rest
 }: ContainerProps): JSX.Element => {
-  const styles = useOverrides<ContainerThemeType>('Container', overrides);
+  const styles = useOverrides<ContainerThemeType>({
+    key: 'Container',
+    overrides,
+  });
   return (
     <ContainerWrapper styles={styles} as={Component} {...rest}>
       {children}

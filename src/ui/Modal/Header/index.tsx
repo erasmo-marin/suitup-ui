@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Cross1Icon, ChevronLeftIcon } from '@radix-ui/react-icons';
 import useOverrides from '../../../theming/useOverrides';
-import { ModalHeaderThemeType } from './theme';
+import type { ModalThemeType } from '../theme';
 
 const HeaderContainer = styled.div`
   height: ${({ styles }) => styles?.height};
@@ -62,7 +62,6 @@ export type ModalHeaderProps = {
   onLeftButtonClick?: () => void;
   rightButton?: ModalHeaderActionButtonType;
   onRightButtonClick?: () => void;
-  overrides?: ModalHeaderThemeType;
 };
 
 const ModalHeader = ({
@@ -71,28 +70,30 @@ const ModalHeader = ({
   onLeftButtonClick,
   rightButton,
   onRightButtonClick,
-  overrides,
 }: ModalHeaderProps) => {
-  const styles = useOverrides<ModalHeaderThemeType>('ModalHeader', overrides);
+  const styles = useOverrides<ModalThemeType>({
+    key: 'Modal',
+    fromContext: true,
+  });
 
   return (
-    <HeaderContainer styles={styles}>
+    <HeaderContainer styles={styles?.Header}>
       <ActionCol>
         {leftButton ? (
           <ActionButton
             onClick={onLeftButtonClick}
-            styles={styles?.ActionButton}
+            styles={styles?.Header?.ActionButton}
           >
             {getActionButton(leftButton)}
           </ActionButton>
         ) : null}
       </ActionCol>
-      <TitleCol styles={styles?.Title}>{title}</TitleCol>
+      <TitleCol styles={styles?.Header?.Title}>{title}</TitleCol>
       <ActionCol>
         {rightButton ? (
           <ActionButton
             onClick={onRightButtonClick}
-            styles={styles?.ActionButton}
+            styles={styles?.Header?.ActionButton}
           >
             {getActionButton(rightButton)}
           </ActionButton>

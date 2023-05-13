@@ -4,9 +4,9 @@ import { ButtonTheme, type ButtonThemeType } from '../ui/Button/theme';
 import { InputTheme, type InputThemeType } from '../ui/Input/theme';
 import { ModalTheme, type ModalThemeType } from '../ui/Modal/theme';
 import {
-  ModalHeaderTheme,
-  type ModalHeaderThemeType,
-} from '../ui/Modal/Header/theme';
+  NotificationTheme,
+  type NotificationThemeType,
+} from '../ui/Notification/theme';
 import {
   ContainerTheme,
   type ContainerThemeType,
@@ -16,6 +16,11 @@ import {
   AppContainerTheme,
   type AppContainerThemeType,
 } from '../layout/AppContainer/theme';
+import {
+  BottomSheetTheme,
+  type BottomSheetThemeType,
+} from '../ui/BottomSheet/theme';
+import { AlertTheme, type AlertThemeType } from '../ui/Alert/theme';
 
 export type ThemeType = {
   colors: ThemeColorsType;
@@ -23,7 +28,9 @@ export type ThemeType = {
   Button: ButtonThemeType;
   Input: InputThemeType;
   Modal: ModalThemeType;
-  ModalHeader: ModalHeaderThemeType;
+  Notification: NotificationThemeType;
+  BottomSheet: BottomSheetThemeType;
+  Alert: AlertThemeType;
   Container: ContainerThemeType;
   AppContainer: AppContainerThemeType;
 };
@@ -34,7 +41,9 @@ export const defaultTheme: ThemeType = {
   Button: ButtonTheme,
   Input: InputTheme,
   Modal: ModalTheme,
-  ModalHeader: ModalHeaderTheme,
+  Notification: NotificationTheme,
+  BottomSheet: BottomSheetTheme,
+  Alert: AlertTheme,
   Container: ContainerTheme,
   AppContainer: AppContainerTheme,
 };

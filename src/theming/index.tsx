@@ -6,9 +6,9 @@ import GlobalStyles from './globals';
 import AppContainer from '../layout/AppContainer';
 
 type ThemeProviderProps = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   theme: ThemeType;
-  withAppContainer: boolean;
+  withAppContainer?: boolean;
 };
 
 const ThemeProvider = ({

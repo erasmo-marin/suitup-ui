@@ -8,6 +8,7 @@ import ModalHeader from './Header';
 import { useModalContext } from './context';
 import useIsMobile from '../../hooks/useIsMobile';
 import { LayerLevels } from '../../theming/layers';
+import OverridesProvider from '../../theming/OverridesProvider';
 
 const MODAL_BASE_Z_INDEX = LayerLevels.MODAL;
 
@@ -121,7 +122,7 @@ const Modal = ({
   children,
 }: ModalProps) => {
   const [overlayZIndex, setOverlayZIndex] = useState(0);
-  const styles = useOverrides<ModalThemeType>('Modal', overrides);
+  const styles = useOverrides<ModalThemeType>({ key: 'Modal', overrides });
   const {
     onModalOpen,
     onModalClose,
@@ -152,34 +153,36 @@ const Modal = ({
     : animationVariants.desktop;
 
   return (
-    <ModalOverlay
-      open={open}
-      hasFocusTrap={modalIsActive && open}
-      closeOnBlur={closeOnBlur}
-      closeOnEsc={modalIsActive && closeOnEsc}
-      onClose={onClose}
-      onBlur={onBlur}
-      transition={vailTransition}
-      animationVariants={vailAnimationVariants}
-      zIndex={overlayZIndex}
-    >
-      <ModalBox
-        animationVariants={modalVariants}
+    <OverridesProvider overrides={overrides}>
+      <ModalOverlay
         open={open}
-        transition={transition}
-        label={label}
-        role={role}
-        animate={{
-          scale,
-          marginTop,
-          ...animate,
-        }}
-        styles={styles}
-        zIndex={overlayZIndex + 1}
+        hasFocusTrap={modalIsActive && open}
+        closeOnBlur={closeOnBlur}
+        closeOnEsc={modalIsActive && closeOnEsc}
+        onClose={onClose}
+        onBlur={onBlur}
+        transition={vailTransition}
+        animationVariants={vailAnimationVariants}
+        zIndex={overlayZIndex}
       >
-        {children}
-      </ModalBox>
-    </ModalOverlay>
+        <ModalBox
+          animationVariants={modalVariants}
+          open={open}
+          transition={transition}
+          label={label}
+          role={role}
+          animate={{
+            scale,
+            marginTop,
+            ...animate,
+          }}
+          styles={styles}
+          zIndex={overlayZIndex + 1}
+        >
+          {children}
+        </ModalBox>
+      </ModalOverlay>
+    </OverridesProvider>
   );
 };
 

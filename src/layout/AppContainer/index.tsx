@@ -76,7 +76,7 @@ const AppContainer = ({
 }: AppContainerProps) => {
   const { openModals } = useContext(ModalContext);
   const isMobile = useIsMobile();
-  const styles = useOverrides('AppContainer', overrides);
+  const styles = useOverrides({ key: 'AppContainer', overrides });
   const shouldAnimate = openModals > 0 && (isMobile || animateDesktop);
   const variants = isMobile ? mainVariants.mobile : mainVariants.desktop;
 

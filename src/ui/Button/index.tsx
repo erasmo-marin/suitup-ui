@@ -24,11 +24,11 @@ const ButtonContainer = styled.button`
   transition: opacity 0.15s linear;
   &:hover {
     opacity: 0.85;
-  },
+  }
 `;
 
 const Button = ({ children, overrides, ...props }: ButtonProps) => {
-  const styles = useOverrides<ButtonThemeType>(`Button`, overrides);
+  const styles = useOverrides<ButtonThemeType>({ key: 'Button', overrides });
   return (
     <ButtonContainer styles={styles} {...props}>
       {children}
