@@ -5,6 +5,46 @@
     "version": 1
   },
   "stories": {
+    "alert--alert-and-modal": {
+      "name": "Alert and modal",
+      "levels": [
+        "Alert"
+      ],
+      "locStart": 48,
+      "locEnd": 89,
+      "filePath": "src/ui/Alert/Alert.stories.tsx",
+      "meta": {}
+    },
+    "alert--minimal-alert": {
+      "name": "Minimal alert",
+      "levels": [
+        "Alert"
+      ],
+      "locStart": 20,
+      "locEnd": 46,
+      "filePath": "src/ui/Alert/Alert.stories.tsx",
+      "meta": {}
+    },
+    "bottom-sheet--bottom-sheet-and-modal": {
+      "name": "Bottom sheet and modal",
+      "levels": [
+        "Bottom sheet"
+      ],
+      "locStart": 52,
+      "locEnd": 93,
+      "filePath": "src/ui/BottomSheet/BottomSheet.stories.tsx",
+      "meta": {}
+    },
+    "bottom-sheet--minimal-bottom-sheet": {
+      "name": "Minimal bottom sheet",
+      "levels": [
+        "Bottom sheet"
+      ],
+      "locStart": 19,
+      "locEnd": 50,
+      "filePath": "src/ui/BottomSheet/BottomSheet.stories.tsx",
+      "meta": {}
+    },
     "button--primary-button": {
       "name": "Primary button",
       "levels": [
@@ -123,6 +163,16 @@
       "locStart": 66,
       "locEnd": 106,
       "filePath": "src/ui/Modal/Modal.stories.tsx",
+      "meta": {}
+    },
+    "notification--default": {
+      "name": "Default",
+      "levels": [
+        "Notification"
+      ],
+      "locStart": 16,
+      "locEnd": 36,
+      "filePath": "src/ui/Notification/Notification.stories.tsx",
       "meta": {}
     }
   }

@@ -1,4 +1,4 @@
-import{j as d}from"./index-ac209825.js";import{H as a,d as n}from"./StoriesWrapper-e2c7a095.js";const b=a.input`
+import{j as d}from"./index-8d7dd934.js";import{H as a,u as n}from"./StoriesWrapper-1590f6a9.js";const b=a.input`
   background: ${({styles:i})=>i==null?void 0:i.background};
   fill: ${({styles:i})=>i==null?void 0:i.fill};
   color: ${({styles:i})=>i==null?void 0:i.color};
@@ -39,4 +39,4 @@ import{j as d}from"./index-ac209825.js";import{H as a,d as n}from"./StoriesWrapp
   &::placeholder {
     color: ${({styles:i})=>{var o;return(o=i==null?void 0:i.Placeholder)==null?void 0:o.color}};
   }
-`,$=({overrides:i,...o})=>{const r=n("Input",i);return d(b,{styles:r,...o})},g=$;export{g as I};
+`,$=({overrides:i,...o})=>{const r=n({key:"Input",overrides:i});return d(b,{styles:r,...o})},g=$;export{g as I};

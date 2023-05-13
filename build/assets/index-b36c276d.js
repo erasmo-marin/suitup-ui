@@ -1,4 +1,4 @@
-import{j as s}from"./index-ac209825.js";import{H as i,d as a}from"./StoriesWrapper-e2c7a095.js";const e=i.button`
+import{j as s}from"./index-8d7dd934.js";import{H as e,u as i}from"./StoriesWrapper-1590f6a9.js";const a=e.button`
   display: flex;
   background-color: ${({styles:r,variant:t="primary"})=>{var o;return(o=r[t])==null?void 0:o.backgroundColor}};
   color: ${({styles:r,variant:t})=>{var o;return(o=r[t])==null?void 0:o.color}};
@@ -10,5 +10,5 @@ import{j as s}from"./index-ac209825.js";import{H as i,d as a}from"./StoriesWrapp
   transition: opacity 0.15s linear;
   &:hover {
     opacity: 0.85;
-  },
-`,d=({children:r,overrides:t,...o})=>{const n=a("Button",t);return s(e,{styles:n,...o,children:r})},b=d;export{b as B};
+  }
+`,d=({children:r,overrides:t,...o})=>{const n=i({key:"Button",overrides:t});return s(a,{styles:n,...o,children:r})},b=d;export{b as B};
