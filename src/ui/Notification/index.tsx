@@ -99,6 +99,12 @@ const Content = withContextOverrides(
   `,
 );
 
+// Workaround to be able to asign Title and Description to Content
+const ContentWrapper = (props) => {
+  const Component = () => Content(props);
+  return <Component />;
+};
+
 export type NotificationProps = React.InputHTMLAttributes<HTMLDivElement> & {
   children?: React.ReactNode;
   overrides?: NotificationThemeType;
@@ -122,10 +128,10 @@ const Notification = ({ children, overrides, ...rest }: NotificationProps) => {
   );
 };
 
+ContentWrapper.Title = Title;
+ContentWrapper.Description = Description;
 Notification.Icon = Icon;
 Notification.Time = Time;
-Notification.Content = Content;
-Object.assign(Notification.Content, { Title });
-Object.assign(Notification.Content, { Description });
+Notification.Content = ContentWrapper;
 
 export default Notification;
