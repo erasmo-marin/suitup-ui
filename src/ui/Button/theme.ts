@@ -1,20 +1,20 @@
 import type * as CSS from 'csstype';
 import { colors } from '../../theming/colors';
 
-export type VariantsModifiersType = {
-  backgroundColor?: CSS.Property.BackgroundColor;
-  color?: CSS.Property.Color;
-  border?: CSS.Property.Border;
-  borderRadius?: CSS.Property.BorderRadius;
-  padding?: CSS.Property.Padding;
-};
+export type VariantsModifiersType = Partial<{
+  backgroundColor: CSS.Property.BackgroundColor;
+  color: CSS.Property.Color;
+  border: CSS.Property.Border;
+  borderRadius: CSS.Property.BorderRadius;
+  padding: CSS.Property.Padding;
+}>;
 
-export type ButtonThemeType = {
-  primary?: VariantsModifiersType;
-  secondary?: VariantsModifiersType;
-  tertiary?: VariantsModifiersType;
-  quaternary?: VariantsModifiersType;
-};
+export type ButtonThemeType = Partial<{
+  primary: VariantsModifiersType;
+  secondary: VariantsModifiersType;
+  tertiary: VariantsModifiersType;
+  quaternary: VariantsModifiersType;
+}>;
 
 const defaultValues = {
   color: 'white',

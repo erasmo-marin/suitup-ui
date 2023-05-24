@@ -1,64 +1,65 @@
 import type * as CSS from 'csstype';
 
-export type NotificationThemeType = {
-  display?: CSS.Property.Display;
-  alignItems?: CSS.Property.AlignItems;
-  width?: CSS.Property.Width;
-  padding?: CSS.Property.Padding;
-  borderRadius?: CSS.Property.BorderRadius;
-  height?: CSS.Property.Height;
-  background?: CSS.Property.Background;
-  backdropFilter?: CSS.Property.BackdropFilter;
-  boxShadow?: CSS.Property.BoxShadow;
-  Title?: {
-    overflow?: CSS.Property.Overflow;
-    whiteSpace?: CSS.Property.WhiteSpace;
-    textOverflow?: CSS.Property.TextOverflow;
-    fontSize?: CSS.Property.FontSize;
-    fontWeight?: CSS.Property.FontWeight;
-    color?: CSS.Property.Color;
-    margin?: CSS.Property.Margin;
-  };
-  Description?: {
+export type NotificationThemeType = Partial<{
+  display: CSS.Property.Display;
+  alignItems: CSS.Property.AlignItems;
+  width: CSS.Property.Width;
+  padding: CSS.Property.Padding;
+  borderRadius: CSS.Property.BorderRadius;
+  height: CSS.Property.Height;
+  background: CSS.Property.Background;
+  backdropFilter: CSS.Property.BackdropFilter;
+  boxShadow: CSS.Property.BoxShadow;
+  Title: Partial<{
+    overflow: CSS.Property.Overflow;
+    whiteSpace: CSS.Property.WhiteSpace;
+    textOverflow: CSS.Property.TextOverflow;
     fontSize: CSS.Property.FontSize;
     fontWeight: CSS.Property.FontWeight;
     color: CSS.Property.Color;
     margin: CSS.Property.Margin;
-  };
-  CloseButton?: {
-    position?: CSS.Property.Position;
-    top?: CSS.Property.Top;
-    left?: CSS.Property.Left;
-    width?: CSS.Property.Width;
-    height?: CSS.Property.Height;
-    borderRadius?: CSS.Property.BorderRadius;
-    border?: CSS.Property.Border;
-    display?: CSS.Property.Display;
-    alignItems?: CSS.Property.AlignItems;
-    justifyContent?: CSS.Property.JustifyContent;
-    boxShadow?: CSS.Property.BoxShadow;
-    cursor?: CSS.Property.Cursor;
-  };
-  Icon?: {
-    marginRight?: CSS.Property.MarginRight;
-  };
-  Time?: {
-    marginTop?: CSS.Property.MarginTop;
-    alignSelf?: CSS.Property.AlignSelf;
-    marginLeft?: CSS.Property.MarginLeft;
-    fontSize?: CSS.Property.FontSize;
-    lineHeight?: CSS.Property.LineHeight;
-    fontWeight?: CSS.Property.FontWeight;
-    color?: CSS.Property.Color;
-  };
-  Content?: {
-    overflow?: CSS.Property.Overflow;
-    flexGrow?: CSS.Property.FlexGrow;
-    display?: CSS.Property.Display;
-    flexFlow?: CSS.Property.FlexFlow;
-    justifyContent?: CSS.Property.JustifyContent;
-  };
-};
+  }>;
+  Description: Partial<{
+    fontSize: CSS.Property.FontSize;
+    fontWeight: CSS.Property.FontWeight;
+    color: CSS.Property.Color;
+    margin: CSS.Property.Margin;
+  }>;
+  CloseButton: Partial<{
+    position: CSS.Property.Position;
+    top: CSS.Property.Top;
+    left: CSS.Property.Left;
+    width: CSS.Property.Width;
+    height: CSS.Property.Height;
+    borderRadius: CSS.Property.BorderRadius;
+    border: CSS.Property.Border;
+    display: CSS.Property.Display;
+    alignItems: CSS.Property.AlignItems;
+    justifyContent: CSS.Property.JustifyContent;
+    boxShadow: CSS.Property.BoxShadow;
+    cursor: CSS.Property.Cursor;
+  }>;
+  Icon: Partial<{
+    marginRight: CSS.Property.MarginRight;
+  }>;
+  Time: Partial<{
+    marginTop: CSS.Property.MarginTop;
+    alignSelf: CSS.Property.AlignSelf;
+    marginLeft: CSS.Property.MarginLeft;
+    fontSize: CSS.Property.FontSize;
+    lineHeight: CSS.Property.LineHeight;
+    fontWeight: CSS.Property.FontWeight;
+    color: CSS.Property.Color;
+  }>;
+  Content: Partial<{
+    overflow: CSS.Property.Overflow;
+    flexGrow: CSS.Property.FlexGrow;
+    display: CSS.Property.Display;
+    flexFlow: CSS.Property.FlexFlow;
+    justifyContent: CSS.Property.JustifyContent;
+  }>;
+}>;
+
 export const NotificationTheme: NotificationThemeType = {
   display: 'flex',
   alignItems: 'center',

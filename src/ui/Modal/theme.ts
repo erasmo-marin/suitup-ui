@@ -1,33 +1,33 @@
 import type * as CSS from 'csstype';
 import { colors } from '../../theming/colors';
 
-export type ModalHeaderThemeType = {
-  height?: CSS.Property.Height;
-  minHeight?: CSS.Property.MinHeight;
+export type ModalHeaderThemeType = Partial<{
+  height: CSS.Property.Height;
+  minHeight: CSS.Property.MinHeight;
   borderBottom: CSS.Property.BorderBottom;
-  background?: CSS.Property.Background;
-  ActionButton?: {
-    background?: CSS.Property.Background;
-    border?: CSS.Property.Border;
-    color?: CSS.Property.Color;
-    width?: CSS.Property.Width;
-    height?: CSS.Property.Height;
-    display?: CSS.Property.Display;
-    justifyContent?: CSS.Property.JustifyContent;
-    alignItems?: CSS.Property.AlignItems;
-    cursor?: CSS.Property.Cursor;
-    borderRadius?: CSS.Property.BorderRadius;
-    hover?: {
-      background?: CSS.Property.Background;
-    };
-  };
-  Title?: {
-    textAlign?: CSS.Property.TextAlign;
-    display?: CSS.Property.Display;
-    justifyContent?: CSS.Property.JustifyContent;
-    flexGrow?: CSS.Property.FlexGrow;
-  };
-};
+  background: CSS.Property.Background;
+  ActionButton: Partial<{
+    background: CSS.Property.Background;
+    border: CSS.Property.Border;
+    color: CSS.Property.Color;
+    width: CSS.Property.Width;
+    height: CSS.Property.Height;
+    display: CSS.Property.Display;
+    justifyContent: CSS.Property.JustifyContent;
+    alignItems: CSS.Property.AlignItems;
+    cursor: CSS.Property.Cursor;
+    borderRadius: CSS.Property.BorderRadius;
+    hover: Partial<{
+      background: CSS.Property.Background;
+    }>;
+  }>;
+  Title: Partial<{
+    textAlign: CSS.Property.TextAlign;
+    display: CSS.Property.Display;
+    justifyContent: CSS.Property.JustifyContent;
+    flexGrow: CSS.Property.FlexGrow;
+  }>;
+}>;
 
 export const ModalHeaderTheme: ModalHeaderThemeType = {
   height: '56px',
@@ -57,35 +57,35 @@ export const ModalHeaderTheme: ModalHeaderThemeType = {
   },
 };
 
-export type ModalThemeType = {
-  mobile?: {
-    width?: CSS.Property.Width;
-    maxWidth?: CSS.Property.MaxWidth;
-    height?: CSS.Property.Height;
-    maxHeight?: CSS.Property.MaxHeight;
-    backgroundColor?: CSS.Property.BackgroundColor;
-    borderRadius?: CSS.Property.BorderRadius;
-    boxShadow?: CSS.Property.BoxShadow;
-    margin?: CSS.Property.Margin;
-    Vail?: {
-      backgroundColor?: CSS.Property.BackgroundColor;
-    };
-  };
-  desktop?: {
-    width?: CSS.Property.Width;
-    maxWidth?: CSS.Property.MaxWidth;
-    height?: CSS.Property.Height;
-    maxHeight?: CSS.Property.MaxHeight;
-    backgroundColor?: CSS.Property.BackgroundColor;
-    borderRadius?: CSS.Property.BorderRadius;
-    boxShadow?: CSS.Property.BoxShadow;
-    margin?: CSS.Property.Margin;
-    Vail?: {
-      backgroundColor?: CSS.Property.BackgroundColor;
-    };
-  };
+export type ModalThemeType = Partial<{
+  mobile: Partial<{
+    width: CSS.Property.Width;
+    maxWidth: CSS.Property.MaxWidth;
+    height: CSS.Property.Height;
+    maxHeight: CSS.Property.MaxHeight;
+    backgroundColor: CSS.Property.BackgroundColor;
+    borderRadius: CSS.Property.BorderRadius;
+    boxShadow: CSS.Property.BoxShadow;
+    margin: CSS.Property.Margin;
+    Vail: Partial<{
+      backgroundColor: CSS.Property.BackgroundColor;
+    }>;
+  }>;
+  desktop: Partial<{
+    width: CSS.Property.Width;
+    maxWidth: CSS.Property.MaxWidth;
+    height: CSS.Property.Height;
+    maxHeight: CSS.Property.MaxHeight;
+    backgroundColor: CSS.Property.BackgroundColor;
+    borderRadius: CSS.Property.BorderRadius;
+    boxShadow: CSS.Property.BoxShadow;
+    margin: CSS.Property.Margin;
+    Vail: Partial<{
+      backgroundColor: CSS.Property.BackgroundColor;
+    }>;
+  }>;
   Header: ModalHeaderThemeType;
-};
+}>;
 
 export const ModalTheme: ModalThemeType = {
   mobile: {

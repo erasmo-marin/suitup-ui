@@ -1,33 +1,33 @@
 import type * as CSS from 'csstype';
 
-export type AlertThemeType = {
-  mobile?: {
-    width?: CSS.Property.Width;
-    maxWidth?: CSS.Property.MaxWidth;
-    height?: CSS.Property.Height;
-    maxHeight?: CSS.Property.MaxHeight;
-    backgroundColor?: CSS.Property.BackgroundColor;
-    borderRadius?: CSS.Property.BorderRadius;
-    boxShadow?: CSS.Property.BoxShadow;
-    margin?: CSS.Property.Margin;
-    Vail?: {
-      backgroundColor?: CSS.Property.BackgroundColor;
+export type AlertThemeType = Partial<{
+  mobile: Partial<{
+    width: CSS.Property.Width;
+    maxWidth: CSS.Property.MaxWidth;
+    height: CSS.Property.Height;
+    maxHeight: CSS.Property.MaxHeight;
+    backgroundColor: CSS.Property.BackgroundColor;
+    borderRadius: CSS.Property.BorderRadius;
+    boxShadow: CSS.Property.BoxShadow;
+    margin: CSS.Property.Margin;
+    Vail: {
+      backgroundColor: CSS.Property.BackgroundColor;
     };
-  };
-  desktop?: {
-    width?: CSS.Property.Width;
-    maxWidth?: CSS.Property.MaxWidth;
-    height?: CSS.Property.Height;
-    maxHeight?: CSS.Property.MaxHeight;
-    backgroundColor?: CSS.Property.BackgroundColor;
-    borderRadius?: CSS.Property.BorderRadius;
-    boxShadow?: CSS.Property.BoxShadow;
-    margin?: CSS.Property.Margin;
-    Vail?: {
-      backgroundColor?: CSS.Property.BackgroundColor;
+  }>;
+  desktop: Partial<{
+    width: CSS.Property.Width;
+    maxWidth: CSS.Property.MaxWidth;
+    height: CSS.Property.Height;
+    maxHeight: CSS.Property.MaxHeight;
+    backgroundColor: CSS.Property.BackgroundColor;
+    borderRadius: CSS.Property.BorderRadius;
+    boxShadow: CSS.Property.BoxShadow;
+    margin: CSS.Property.Margin;
+    Vail: {
+      backgroundColor: CSS.Property.BackgroundColor;
     };
-  };
-};
+  }>;
+}>;
 
 export const AlertTheme: AlertThemeType = {
   mobile: {

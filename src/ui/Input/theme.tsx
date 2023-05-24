@@ -1,27 +1,28 @@
 import type * as CSS from 'csstype';
 import { colors } from '../../theming/colors';
 
-type InputBaseThemeType = {
-  background?: CSS.Property.Background;
-  color?: CSS.Property.Color;
-  fill?: CSS.Property.Fill;
-  transition?: CSS.Property.Transition;
-  border?: CSS.Property.Border;
-  borderRadius?: CSS.Property.BorderRadius;
-  boxSizing?: CSS.Property.BoxSizing;
-  height?: CSS.Property.Height;
-  padding?: CSS.Property.Padding;
-  margin?: CSS.Property.Margin;
-  width?: CSS.Property.Width;
-};
+type InputBaseThemeType = Partial<{
+  background: CSS.Property.Background;
+  color: CSS.Property.Color;
+  fill: CSS.Property.Fill;
+  transition: CSS.Property.Transition;
+  border: CSS.Property.Border;
+  borderRadius: CSS.Property.BorderRadius;
+  boxSizing: CSS.Property.BoxSizing;
+  height: CSS.Property.Height;
+  padding: CSS.Property.Padding;
+  margin: CSS.Property.Margin;
+  width: CSS.Property.Width;
+}>;
 
-export type InputThemeType = InputBaseThemeType & {
-  Focus?: InputBaseThemeType;
-  Disabled?: InputBaseThemeType;
-  Placeholder?: {
-    color?: CSS.Property.Color;
-  };
-};
+export type InputThemeType = InputBaseThemeType &
+  Partial<{
+    Focus: InputBaseThemeType;
+    Disabled: InputBaseThemeType;
+    Placeholder: Partial<{
+      color: CSS.Property.Color;
+    }>;
+  }>;
 
 export const InputTheme: InputThemeType = {
   background: 'transparent',
